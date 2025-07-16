@@ -21,3 +21,9 @@
 ## Created Login page with validation using react-hook-form and zod
 
 ## Error boundary added with error.tsx file
+
+## PDP page - "/"
+
+## Cart page - "/cart"
+
+## Login - "/login"
