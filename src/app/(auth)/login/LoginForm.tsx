@@ -23,6 +23,8 @@ import {
 } from "@/components/ui/form";
 import { loginSchema, LoginSchema } from "@/lib/schema/loginSchema";
 import Image from "next/image";
+import { useMutation } from "@apollo/client";
+import { LOGIN } from "./graphql/queries";
 
 export default function LoginForm() {
   const form = useForm<LoginSchema>({
@@ -34,8 +36,10 @@ export default function LoginForm() {
     },
   });
 
+  const [handleLogin] = useMutation(LOGIN);
+
   const onSubmit = (data: LoginSchema) => {
-    console.log(data);
+    handleLogin({ variables: { email: data.email, password: data.password } });
   };
 
   return (
